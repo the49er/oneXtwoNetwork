@@ -1,10 +1,6 @@
 src/main/java/com/onetwonet/api/ApiUtil.java
 src/main/java/com/onetwonet/api/BetApi.java
-src/main/java/com/onetwonet/model/BetCreateRequest.java
-src/main/java/com/onetwonet/model/BetResponse.java
-src/main/java/com/onetwonet/model/BetsCreateRequest.java
-src/main/java/com/onetwonet/model/ErrorDescription.java
-src/main/java/com/onetwonet/model/ErrorResponse.java
-src/main/java/com/onetwonet/model/FindBetRequest.java
-src/main/java/com/onetwonet/model/ValidationErrorResponse.java
-src/main/java/com/onetwonet/model/ValidationErrorResponseAllOf.java
+src/main/java/com/onetwonet/dto/BetCreateRequest.java
+src/main/java/com/onetwonet/dto/BetResponse.java
+src/main/java/com/onetwonet/dto/BetsCreateRequest.java
+src/main/java/com/onetwonet/dto/FindBetRequest.java

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Bets</title>
+    <style>
+    body {
+        background-image: url('/images/background13.jpg');
+    }
+
+    </style>
+</head>
+<body>
+<a href="/">Back</a>
+<div align="center">
+   <h1 th:text="'filtered by game: ' + ${game}"></h1>
+    <br/><br/>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Bet_ID</th>
+                <th>Game</th>
+                <th>Stake</th>
+                <th>Returns</th>
+                <th>Client_ID</th>
+                <th>Date</th>
+            </tr>
+
+            <tr th:each="bet : ${bets}">
+                <td align="center" th:utext="${bet.id}">...</td>
+                <td align="center" th:utext="${bet.game}">...</td>
+                <td align="center" th:utext="${bet.stake}">...</td>
+                <td align="center" th:utext="${bet.returns}">...</td>
+                <td align="center" th:utext="${bet.clientid}">...</td>
+                <td align="center" th:utext="${bet.date}">...</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

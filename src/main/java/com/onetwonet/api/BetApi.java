@@ -5,8 +5,8 @@
  */
 package com.onetwonet.api;
 
-import com.onetwonet.model.BetResponse;
-import com.onetwonet.model.BetsCreateRequest;
+import com.onetwonet.dto.BetResponse;
+import com.onetwonet.dto.BetsCreateRequest;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

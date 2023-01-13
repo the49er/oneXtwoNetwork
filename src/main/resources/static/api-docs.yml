@@ -115,31 +115,3 @@ components:
           type: string
           items:
             $ref: '#/components/schemas/BetResponse'
-
-
-    ValidationErrorResponse:
-      allOf:
-        - $ref: "#/components/schemas/ErrorResponse"
-        - type: object
-          properties:
-            errors:
-              type: array
-              items:
-                $ref: "#/components/schemas/ErrorDescription"
-
-
-    ErrorResponse:
-      type: object
-      description: 'Error response'
-      properties:
-        message:
-          type: string
-    ErrorDescription:
-      type: object
-      description: 'Error description'
-      properties:
-        field:
-          type: string
-        error:
-          type: string
-

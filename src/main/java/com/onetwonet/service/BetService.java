@@ -1,9 +1,9 @@
 package com.onetwonet.service;
 
+import com.onetwonet.dto.BetResponse;
+import com.onetwonet.dto.BetsCreateRequest;
 import com.onetwonet.jpa.model.Bet;
 import com.onetwonet.mapper.BetMapper;
-import com.onetwonet.model.BetResponse;
-import com.onetwonet.model.BetsCreateRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.decimal4j.util.DoubleRounder;
@@ -23,7 +23,7 @@ public class BetService {
 
     public List<BetResponse> createBets(BetsCreateRequest betsCreateRequest) {
         List<Bet> bets = betResponseToBet(betsCreateRequest);
-
+        betRepository.saveAll(bets);
         return bets.stream()
                 .map(BetMapper.INSTANCE::toDto)
                 .collect(Collectors.toList());
@@ -51,6 +51,27 @@ public class BetService {
 
     public List<BetResponse> findAll() {
         return betRepository.findAll()
+                .stream()
+                .map(BetMapper.INSTANCE::toDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<BetResponse> findByClientId(String clientId) {
+        return betRepository.findByClientId(clientId)
+                .stream()
+                .map(BetMapper.INSTANCE::toDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<BetResponse> findByGame(String game) {
+        return betRepository.findByGame(game)
+                .stream()
+                .map(BetMapper.INSTANCE::toDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<BetResponse> findByDate(String date) {
+        return betRepository.findByDate(date)
                 .stream()
                 .map(BetMapper.INSTANCE::toDto)
                 .collect(Collectors.toList());

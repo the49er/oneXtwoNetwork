@@ -1,4 +1,4 @@
-package com.onetwonet.model;
+package com.onetwonet.dto;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;

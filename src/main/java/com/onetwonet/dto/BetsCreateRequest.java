@@ -1,50 +1,61 @@
-package com.onetwonet.model;
+package com.onetwonet.dto;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.onetwonet.model.BetResponse;
+import com.onetwonet.dto.BetResponse;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.io.Serializable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * bet request params
+ * to create an Entity with provided ID
  */
-@ApiModel(description = "bet request params")
+@ApiModel(description = "to create an Entity with provided ID")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 @lombok.AllArgsConstructor
 @lombok.Builder
 @lombok.NoArgsConstructor
 
-public class FindBetRequest  implements Serializable {
+public class BetsCreateRequest  implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @JsonProperty("item")
-  private BetResponse item;
+  @JsonProperty("bets")
+  @Valid
+  private List<BetResponse> bets = null;
 
-  public FindBetRequest item(BetResponse item) {
-    this.item = item;
+  public BetsCreateRequest bets(List<BetResponse> bets) {
+    this.bets = bets;
+    return this;
+  }
+
+  public BetsCreateRequest addBetsItem(BetResponse betsItem) {
+    if (this.bets == null) {
+      this.bets = new ArrayList<>();
+    }
+    this.bets.add(betsItem);
     return this;
   }
 
   /**
-   * Get item
-   * @return item
+   * Get bets
+   * @return bets
   */
   @ApiModelProperty(value = "")
 
   @Valid
 
-  public BetResponse getItem() {
-    return item;
+  public List<BetResponse> getBets() {
+    return bets;
   }
 
-  public void setItem(BetResponse item) {
-    this.item = item;
+  public void setBets(List<BetResponse> bets) {
+    this.bets = bets;
   }
 
 
@@ -56,21 +67,21 @@ public class FindBetRequest  implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FindBetRequest findBetRequest = (FindBetRequest) o;
-    return Objects.equals(this.item, findBetRequest.item);
+    BetsCreateRequest betsCreateRequest = (BetsCreateRequest) o;
+    return Objects.equals(this.bets, betsCreateRequest.bets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(item);
+    return Objects.hash(bets);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FindBetRequest {\n");
+    sb.append("class BetsCreateRequest {\n");
     
-    sb.append("    item: ").append(toIndentedString(item)).append("\n");
+    sb.append("    bets: ").append(toIndentedString(bets)).append("\n");
     sb.append("}");
     return sb.toString();
   }

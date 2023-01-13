@@ -78,7 +78,7 @@ openApiGenerate {
     outputDir = "$rootDir/".toString()
     skipValidateSpec = true
     apiPackage = "com.onetwonet.api"
-    modelPackage = "com.onetwonet.model"
+    modelPackage = "com.onetwonet.dto"
     configOptions = [
             library                       : "spring-boot",
             dateLibrary                   : "java8",

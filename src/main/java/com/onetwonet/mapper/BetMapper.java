@@ -1,7 +1,7 @@
 package com.onetwonet.mapper;
 
+import com.onetwonet.dto.BetResponse;
 import com.onetwonet.jpa.model.Bet;
-import com.onetwonet.model.BetResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
