@@ -1,60 +1,57 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Bets</title>
-    <style>
-    body {
-        background-image: url('/images/background13.jpg');
-    }
-
-
-
-    </style>
+    <link rel="stylesheet" th:href="@{/css/mystyle.css}">
 </head>
 <body>
-<a href="/bet">Back</a>
 <div align="center">
     <h1>Bets</h1>
     <br/><br/>
     <div>
-        <table border="1">
-            <tr>
-                <th>Bet_ID</th>
-                <th>Game</th>
-                <th>Stake</th>
-                <th>Returns</th>
-                <th>Client_ID</th>
-                <th>Date</th>
-            </tr>
-
-            <tr th:each="bet : ${bets}">
-                <td align="center" th:utext="${bet.id}">...</td>
-                <td align="center" th:utext="${bet.game}">...</td>
-                <td align="center" th:utext="${bet.stake}">...</td>
-                <td align="center" th:utext="${bet.returns}">...</td>
-                <td align="center" th:utext="${bet.clientid}">...</td>
-                <td align="center" th:utext="${bet.date}">...</td>
-                <td>
-                    <form method="get" th:action="'game/'+ ${bet.game}"></a>
-                        <input name="game" th:value="${bet.game}" type="hidden">
-                        <button id="btnGm">Game</button>
-                    </form>
-                <td>
-                    <form method="get" th:action="'clientid/' + ${bet.clientid}"></a>
-                        <input name="clientid" th:value="${bet.clientid}" type="hidden">
-                        <button id="btnClnt">Client_ID</button>
-                    </form>
-                </td>
-                <td>
-                    <form method="get" th:action="'date/' + ${bet.date}"></a>
-                        <input name="date" th:value="${bet.date}" type="hidden">
-                        <button id="btnDt">Date</button>
-                    </form>
-                </td>
+        <table border="1" class="styled-table">
+            <thead>
+                <tr>
+                    <th>Bet_ID</th>
+                    <th>Game</th>
+                    <th>Stake</th>
+                    <th>Returns</th>
+                    <th>Client_ID</th>
+                    <th>Date</th>
+                    <th colspan="3" align="center">Filters</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="bet : ${bets}">
+                    <td align="center" th:utext="${bet.id}">...</td>
+                    <td align="center" th:utext="${bet.game}">...</td>
+                    <td align="center" th:utext="${bet.stake}">...</td>
+                    <td align="center" th:utext="${bet.returns}">...</td>
+                    <td align="center" th:utext="${bet.clientid}">...</td>
+                    <td align="center" th:utext="${bet.date}">...</td>
+                    <td>
+                        <form method="get" th:action="'/bet/game/'+ ${bet.game}"></a>
+                            <input name="game" th:value="${bet.game}" type="hidden">
+                            <button id="btnGm">Game</button>
+                        </form>
+                    <td>
+                        <form method="get" th:action="'/bet/client/' + ${bet.clientid}"></a>
+                            <input name="clientid" th:value="${bet.clientid}" type="hidden">
+                            <button id="btnClnt">Client_ID</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="get" th:action="'/bet/date/' + ${bet.date}"></a>
+                            <input name="date" th:value="${bet.date}" type="hidden">
+                            <button id="btnDt">Date</button>
+                        </form>
+                    </td>
+                </tbody>
             </tr>
         </table>
     </div>
 </div>
+
 </body>
 </html>
